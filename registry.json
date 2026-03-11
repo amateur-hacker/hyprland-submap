@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "plugins": [
+    {
+      "id": "hyprland-submap",
+      "name": "Hyprland Submap",
+      "version": "1.0",
+      "official": false,
+      "author": "Amateur Hacker",
+      "description": "Shows the active Hyprland submap in the Noctalia Shell bar.",
+      "repository": "https://github.com/amateur-hacker/hyprland-submap",
+      "license": "MIT",
+      "tags": [
+        "Bar",
+        "Productivity"
+      ],
+      "lastUpdated": "2026-02-04T23:08:01-07:00"
+    }
+  ]
+}
