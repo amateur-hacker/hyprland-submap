@@ -3,6 +3,8 @@ name: Update Registry
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - 'registry.json'
   workflow_dispatch:
 
 jobs:
