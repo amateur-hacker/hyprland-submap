@@ -1,6 +1,9 @@
 # Plugin runtime data
 */settings.json
 
+# Scripts (local only)
+scripts/
+
 # OS
 .DS_Store
 *.log
