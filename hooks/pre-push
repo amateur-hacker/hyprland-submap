@@ -1,0 +1,4 @@
+#!/bin/sh
+TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%S%z")
+sed -i "s/\"lastUpdated\": \"[^\"]*\"/\"lastUpdated\": \"$TIMESTAMP\"/" registry.json 2>/dev/null
+git add registry.json 2>/dev/null
