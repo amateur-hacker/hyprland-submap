@@ -1,0 +1,30 @@
+name: Update Registry
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  update-timestamp:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update lastUpdated
+        run: |
+          TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%S%z")
+          cat registry.json | sed "s/\"lastUpdated\": \"[^\"]*\"/\"lastUpdated\": \"$TIMESTAMP\"/" > registry.json.tmp
+          mv registry.json.tmp registry.json
+
+      - name: Commit and push
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add registry.json
+          git diff --staged --quiet || git commit -m "Update lastUpdated timestamp"
+          git push
