@@ -21,7 +21,7 @@ jobs:
 
       - name: Update lastUpdated
         run: |
-          TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%S%z")
+          TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
           cat registry.json | sed "s/\"lastUpdated\": \"[^\"]*\"/\"lastUpdated\": \"$TIMESTAMP\"/" > registry.json.tmp
           mv registry.json.tmp registry.json
 
